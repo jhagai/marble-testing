@@ -1,0 +1,12 @@
+.demo__right {
+  .mat-card {
+    display: flex;
+  }
+  .mat-card-content {
+    font-size: xx-large;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

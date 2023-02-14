@@ -1,0 +1,53 @@
+<h2>Cache last</h2>
+<div class="demo__content">
+  <div class="demo__left">
+    <mat-accordion multi>
+      <mat-expansion-panel [expanded]="true">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Snippets
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <u>Operator (simplified):</u>
+        <pre>
+$source.pipe(
+          shareReplay({{'{'}}refCount: false, bufferSize: 1{{'}'}})
+);
+        </pre>
+        <u>How to use:</u>
+        <pre>
+this.filteredOptions$ = source$.pipe(
+    cacheLast()
+);
+</pre>
+      </mat-expansion-panel>
+      <mat-expansion-panel [expanded]="true">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Example
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <form [formGroup]="formGroup">
+          <mat-form-field appearance="fill">
+            <mat-label>Whatever</mat-label>
+            <input matInput formControlName="myInput">
+          </mat-form-field>
+        </form>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+  <div class="demo__right">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Events</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <button mat-flat-button color="primary" (click)="toggleShow()">ngIf</button>
+        <div *ngIf="show" class="cache-last__result">
+          <div>cacheLast: <b>{{ observable$ | async }}</b></div>
+          <div>raw: <b>{{ source$ | async }}</b></div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

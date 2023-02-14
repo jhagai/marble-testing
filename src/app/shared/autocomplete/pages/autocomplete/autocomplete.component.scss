@@ -1,0 +1,22 @@
+$componentName: "autocomplete";
+
+.#{$componentName} {
+  &__content {
+    display: flex;
+  }
+
+  &__left {
+    flex: 1;
+    padding-right: 1em;
+  }
+
+  &__right {
+    flex: 1;
+    padding-left: 1em;
+  }
+}
+
+.mat-card-header {
+  display: flex;
+  justify-content: space-between;
+}

@@ -1,0 +1,60 @@
+<h2>Map hello</h2>
+<div class="demo__content">
+  <div class="demo__left">
+    <mat-accordion multi>
+      <mat-expansion-panel [expanded]="true">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Snippets
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <u>Operator (simplified):</u>
+        <pre>
+source$.pipe(
+      map(name => `Hello {{ '${name}' }}`)
+);
+        </pre>
+        <u>How to use:</u>
+        <pre>
+this.mapped$ = source$.pipe(
+    mapHello()
+);
+</pre>
+      </mat-expansion-panel>
+      <mat-expansion-panel [expanded]="true">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Example
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <form (ngSubmit)="submitForm(formGroup.value.name)" [formGroup]="formGroup">
+          <mat-form-field appearance="fill">
+            <mat-label>Your name here</mat-label>
+            <input type="text"
+                   placeholder="name"
+                   aria-label="name"
+                   matInput
+                   formControlName="name">
+          </mat-form-field>
+          <mat-action-row>
+            <button mat-flat-button color="primary">Submit</button>
+          </mat-action-row>
+        </form>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+  <div class="demo__right">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Result</mat-card-title>
+        <!--<button mat-flat-button color="warn" (click)="clearEvent()">Clear</button>-->
+      </mat-card-header>
+      <mat-card-content>
+        {{ mapped$ | async }}
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
+
+

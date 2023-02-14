@@ -1,0 +1,7 @@
+$componentName: 'header';
+
+.#{$componentName} {
+  &__spacer {
+    flex: 1 1 auto;
+  }
+}

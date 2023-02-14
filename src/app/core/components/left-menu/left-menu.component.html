@@ -1,0 +1,21 @@
+<mat-sidenav-container>
+  <mat-sidenav mode="side" [opened]="opened">
+    <mat-list role="list">
+      <a [routerLink]="['/hello-map']">
+        <mat-list-item role="listitem">Hello map</mat-list-item>
+      </a>
+      <a [routerLink]="['/autocomplete']">
+        <mat-list-item role="listitem">Auto complete</mat-list-item>
+      </a>
+      <a [routerLink]="['/cache-last']">
+        <mat-list-item role="listitem">Cache Last</mat-list-item>
+      </a>
+    </mat-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content class="left-menu__content-wrapper">
+    <div class="left-menu__content">
+      <ng-content></ng-content>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
