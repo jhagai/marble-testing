@@ -1,11 +1,9 @@
-import {TestScheduler} from "rxjs/testing";
 import {delay, Observer, of, tap} from "rxjs";
 import {mapHello} from "./map-hello.util";
 import createSpyObj = jasmine.createSpyObj;
 import SpyObj = jasmine.SpyObj;
 
 describe('mapHello (old)', function () {
-  let testScheduler: TestScheduler;
 
   it('should prepend incoming value with Hello.', function () {
     // GIVEN

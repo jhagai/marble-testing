@@ -15,11 +15,11 @@ describe('autocomplete-operator', () => {
 
     testScheduler.run(
       ({cold, time, expectObservable, expectSubscriptions}) => {
-        const source = '  -a-- |';
-        const debounce = ' -|';
-        const search = '    -z|';
-        const expected = '---z|';
-        const expSub = '  --^-!';
+        const source: string = '  -a--|';
+        const debounce: string = ' -|';
+        const search: string = '    -z|';
+        const expected: string = '---z|';
+        const expSub: string = '  --^-!';
         const source$ = cold(source);
         const search$ = cold(search, {z: 'output'});
         const debTime = time(debounce);
@@ -36,13 +36,13 @@ describe('autocomplete-operator', () => {
 
     testScheduler.run(
       ({cold, time, expectObservable, expectSubscriptions}) => {
-        const source = '  -a-b---|';
-        const debounce = ' ---|';
-        //                   ---|
-        const search = '        -z|';
-        const expected = '-------z|';
-        const expSub1 = ''; // First search is never subscribed.
-        const expSub2 = ' ------^-!';
+        const source: string = '  -a-b---|';
+        const debounce: string = ' ---|';
+        //                           ---|
+        const search: string = '        -z|';
+        const expected: string = '-------z|';
+        const expSub1: string = ''; // First search is never subscribed.
+        const expSub2: string = ' ------^-!';
         const source$ = cold(source);
         const search1$ = cold(search, {z: 'output1'});
         const search2$ = cold(search, {z: 'output2'});
@@ -60,16 +60,16 @@ describe('autocomplete-operator', () => {
   it('should discard ongoing search if source emits new value in the mean time.', () => {
 
     testScheduler.run(
-      ({cold, flush, time, expectObservable, expectSubscriptions}) => {
+      ({cold, time, expectObservable, expectSubscriptions}) => {
         // GIVEN
-        const source = '  -a-b--------|';
-        const debounce = ' -|          ';
-        const search = '    ---z|      ';
-        // other debounce    -|
-        // second search      ---z|
-        const expected = '-------z----|';
-        const expSub1 = ' --^-!';
-        const expSub2 = ' ----^---!';
+        const source: string = '  -a-b--------|';
+        const debounce: string = ' -|          ';
+        const search: string = '    ---z|      ';
+        // other debounce            -|
+        // second search              ---z|
+        const expected: string = '-------z----|';
+        const expSub1: string = ' --^-!';
+        const expSub2: string = ' ----^---!';
         const source$ = cold(source);
         const debTime = time(debounce);
         const search1$ = cold(search, {z: 'output1'});
@@ -91,14 +91,14 @@ describe('autocomplete-operator', () => {
     testScheduler.run(
       ({cold, time, expectObservable, expectSubscriptions}) => {
         // GIVEN
-        const source = '  -a---b----|';
-        const debounce = ' -|'
-        const search1 = '   -y|';
-        //                     -|
-        const search2 = '       -z|';
-        const expected = '---y---z--|';
-        const expSub1 = ' --^-!';
-        const expSub2 = ' ------^-!';
+        const source: string = '  -a---b----|';
+        const debounce: string = ' -|'
+        const search1: string = '   -y|';
+        //                             -|
+        const search2: string = '       -z|';
+        const expected: string = '---y---z--|';
+        const expSub1: string = ' --^-!';
+        const expSub2: string = ' ------^-!';
         const source$ = cold(source);
         const search1$ = cold(search1, {y: 'output1'});
         const search2$ = cold(search2, {z: 'output2'});
@@ -119,9 +119,9 @@ describe('autocomplete-operator', () => {
 
     testScheduler.run(
       ({cold, time, expectObservable}) => {
-        const source = '  -a---|';
-        const debounce = ' -|';
-        const expected = '-----|';
+        const source: string = '  -a---|';
+        const debounce: string = ' -|';
+        const expected: string = '-----|';
         const source$ = cold(source);
         const debTime = time(debounce);
 
@@ -138,10 +138,10 @@ describe('autocomplete-operator', () => {
 
     testScheduler.run(
       ({cold, time, expectObservable, expectSubscriptions}) => {
-        const source = '  -a---|';
-        const debounce = ' -|';
-        const search = '    -#';
-        const expected = '-----|';
+        const source: string = '  -a---|';
+        const debounce: string = ' -|';
+        const search: string = '    -#';
+        const expected: string = '-----|';
         const expSub = '  --^!';
         const source$ = cold(source);
         const search$ = cold(search, {}, new Error('Inner observable error'));

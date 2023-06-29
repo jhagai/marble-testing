@@ -8,6 +8,10 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   {
+    path: 'intro',
+    loadChildren: () => import('./shared/intro/intro.module').then((m) => m.IntroModule)
+  },
+  {
     path: 'autocomplete',
     loadChildren: () => import('./shared/autocomplete/autocomplete.module').then((m) => m.AutocompleteModule)
   },

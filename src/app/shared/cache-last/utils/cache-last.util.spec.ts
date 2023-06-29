@@ -16,11 +16,11 @@ describe('cacheLast', function () {
     testScheduler.run(
       ({cold, flush, expectObservable}) => {
         // GIVEN
-        const source = '  --a---b---c--';
-        const sub1 = '    ^------------!';
-        const sub2 = '    --------^---!';
-        const expect1 = ' --a---b---c';
-        const expect2 = ' --------b-c';
+        const source: string = '  --a---b---c--';
+        const sub1: string = '    ^------------!';
+        const sub2: string = '    --------^---!';
+        const expect1: string = ' --a---b---c';
+        const expect2: string = ' --------b-c';
         const source$ = cold(source);
 
         let counter = 0;
@@ -39,11 +39,11 @@ describe('cacheLast', function () {
     );
   });
 
-  xit('should fail', () => {
+  it('should fail since rx marble cannot orchestrate setTimeout', () => {
 
     testScheduler.run(
       ({expectObservable}) => {
-        // const source$ = timer(1000).pipe(mapTo('a'));
+        //const source$ = timer(1000).pipe(mapTo('a'));
 
         const source$ = new Observable(observer => {
           const timeoutId = setTimeout(() => {

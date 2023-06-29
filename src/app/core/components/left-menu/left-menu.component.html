@@ -1,6 +1,9 @@
 <mat-sidenav-container>
   <mat-sidenav mode="side" [opened]="opened">
     <mat-list role="list">
+      <a [routerLink]="['/intro']">
+        <mat-list-item role="listitem">Intro</mat-list-item>
+      </a>
       <a [routerLink]="['/hello-map']">
         <mat-list-item role="listitem">Hello map</mat-list-item>
       </a>

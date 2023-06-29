@@ -14,8 +14,8 @@ describe('mapHello', function () {
     testScheduler.run(
       ({cold, expectObservable}) => {
         // GIVEN
-        const source = '  -a-b-|';
-        const expected = '-y-z-|';
+        const source: string = '  -a-b-|';
+        const expected: string = '-y-z-|';
         const source$: Observable<string> = cold(source, {a: 'toto', b: 'tata'});
 
         // WHEN
